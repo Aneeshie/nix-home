@@ -14,7 +14,6 @@
           pkgs.clang
           pkgs.cmake
           pkgs.gdb
-          pkgs.valgrind
           pkgs.ccls
 
           # optional helpers

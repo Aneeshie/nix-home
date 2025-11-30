@@ -56,7 +56,7 @@
           # --- KUBERNETES WORLD ---
           pkgs.kubectl
           pkgs.k9s
-          pkgs.helm
+          pkgs.kubernetes-helm
           pkgs.minikube
 
           # --- OTHER UTILITIES ---
