@@ -6,14 +6,13 @@
     viAlias = true;
     vimAlias = true;
 
-    # empty because your GitHub repo already has all config
     extraConfig = "";
   };
 
-  xdg.configFile."nvim".source = pkgs.fetchgit {
-    url = "https://github.com/Aneeshie/nvim";
-    ref = "main";
+  xdg.configFile."nvim".source = pkgs.fetchFromGitHub {
+    owner = "Aneeshie";
+    repo = "nvim";
+    rev = "main";
   };
-
 }
 
