@@ -1,12 +1,16 @@
-# Home Manager flake
+# 🏠 Home Manager flake
 
+<<<<<<< HEAD
 This repository is my Home Manager configuration, defined as a Nix flake. It manages user-level packages, programs (git, zsh, starship, Neovim), terminal config (Ghostty), and provides convenient development shells for DSA and full‑stack work.
+=======
+This repository is your Home Manager configuration, defined as a Nix flake. It manages user-level packages, programs (git, zsh, starship, Neovim), optionally configures the Ghostty terminal if you use it, and provides convenient development shells for DSA and full‑stack work.
+>>>>>>> c6cc1d7 (upd)
 
 > **Note on platforms**
 > - The Home Manager config and dev shells are currently wired to `aarch64-darwin` (Apple Silicon macOS).
 > - They **can** be adapted to Linux or other systems by changing the `system` value in the flakes (see below), but as written they are macOS‑specific.
 
-## Layout
+## 🗂️ Layout
 - `flake.nix`
   - Defines `homeConfigurations."zerr"` using Home Manager.
   - Hardcodes `system = "aarch64-darwin"` and imports modules from `home/`.
@@ -15,7 +19,7 @@ This repository is my Home Manager configuration, defined as a Nix flake. It man
   - `packages.nix`: Packages installed into your user profile (`home.packages`).
   - `programs.nix`: Program configs, currently git and starship.
   - `shell.nix`: Zsh config (completion, autosuggestions, syntax highlighting, aliases like `hm`, `devdsa`, `devfs`).
-  - `ghostty.nix`: Wires `configs/ghostty.conf` into `~/.config/ghostty/config`.
+  - `ghostty.nix`: If you use Ghostty, wires `configs/ghostty.conf` into `~/.config/ghostty/config`.
   - `neovim.nix`: Enables Neovim and points `~/.config/nvim` at `Aneeshie/nvim` repo.
 - `configs/ghostty.conf`: Ghostty terminal configuration.
 - `dev-envs/`
@@ -24,7 +28,7 @@ This repository is my Home Manager configuration, defined as a Nix flake. It man
 
 > `home.nix` in the repo is **not** used by the flake: `flake.nix` only imports modules from `home/`. You can ignore `home.nix` or delete it once you are confident you no longer need the template.
 
-## Prerequisites
+## ⚙️ Prerequisites
 1. **Nix installed**
    - Install Nix following the official instructions.
 2. **Flakes enabled**
@@ -37,7 +41,7 @@ This repository is my Home Manager configuration, defined as a Nix flake. It man
 4. **Git installed**
    - You should be comfortable cloning this repo and pushing changes.
 
-### macOS vs Linux
+### 💻 macOS vs 🐧 Linux
 - As written, `flake.nix` uses:
   ```nix
   system = "aarch64-darwin";
@@ -48,10 +52,10 @@ This repository is my Home Manager configuration, defined as a Nix flake. It man
   - Change `system` to something like `"x86_64-linux"` in `flake.nix` and both `dev-envs/*/flake.nix` files.
   - Adjust any macOS‑specific paths (e.g. `home.homeDirectory = "/Users/zerr";`) to your Linux home, like `/home/zerr`.
 
-## Identity & security precautions
+## 🔐 Identity & security precautions
 Before running this config on a new machine or user account, review:
 
-### 1. Git identity
+### 1️⃣ Git identity
 Git is configured in `home/programs.nix`:
 
 - `programs.git.settings.user.name = "Aneeshie";`
@@ -74,18 +78,18 @@ git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 ```
 
-### 2. SSH/GPG keys
+### 2️⃣ SSH/GPG keys
 - Do **not** commit private keys into this repository.
 - If you reference SSH/GPG keys in any future modules, ensure the paths are correct for the current machine and that the keys are safe to use here.
 
-### 3. Secrets & tokens
+### 3️⃣ Secrets & tokens
 - Keep API keys, access tokens, and passwords **out** of version control.
 - Prefer:
   - environment variables,
   - password manager / secret manager,
   - untracked local files (.gitignored).
 
-### 4. Machine‑specific paths
+### 4️⃣ Machine‑specific paths
 - `home/default.nix` hardcodes:
   ```nix
   home.username = "zerr";
@@ -93,7 +97,7 @@ git config --global user.email "you@example.com"
   ```
 - On another machine or OS, update these to your actual username and home directory.
 
-## Initial setup
+## 🚀 Initial setup
 1. **Clone the repo**
    ```bash
    git clone https://github.com/Aneeshie/nix-home ~/.config/home-manager
@@ -118,7 +122,7 @@ git config --global user.email "you@example.com"
    - The `homeConfigurations."zerr"` output is defined in `flake.nix`, so you target `.#zerr`.
    - On first run, Home Manager may ask to create/modify your profile; follow the prompts.
 
-## Shell shortcuts (`hm`, `devdsa`, `devfs`)
+## ⌨️ Shell shortcuts (`hm`, `devdsa`, `devfs`)
 Defined in `home/shell.nix`:
 
 - `hm`
@@ -146,7 +150,7 @@ Defined in `home/shell.nix`:
 
 These aliases only exist in shells managed by Home Manager (i.e. after `programs.zsh` is enabled through this configuration).
 
-## Using the development environments directly
+## 🧪 Using the development environments directly
 Without the aliases, you can still use the dev shells:
 
 - **DSA shell**
@@ -161,7 +165,7 @@ Without the aliases, you can still use the dev shells:
   nix develop
   ```
 
-## Common Home Manager operations
+## 🔁 Common Home Manager operations
 - Apply changes:
   ```bash
   home-manager switch --flake .#zerr
@@ -178,7 +182,7 @@ Without the aliases, you can still use the dev shells:
   home-manager switch --generation <number>
   ```
 
-## Troubleshooting
+## 🩹 Troubleshooting
 - **`home-manager` command not found**
   - Ensure Home Manager is installed via flakes and that your shell `PATH` includes your Nix profile bin directory.
 - **Flake evaluation errors**
