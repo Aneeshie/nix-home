@@ -28,6 +28,7 @@
             ./home/packages.nix
             ./home/programs.nix
             ./home/shell.nix
+            ./home/neovim.nix
         ];
 
         # Optionally use extraSpecialArgs

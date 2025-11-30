@@ -10,7 +10,7 @@
     extraConfig = "";
   };
 
-  xdg.configFile."nvim".source = pkgs.fetchGit {
+  xdg.configFile."nvim".source = pkgs.fetchgit {
     url = "https://github.com/Aneeshie/nvim";
     ref = "main";
   };
