@@ -8,8 +8,8 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       hm = "home-manager switch --flake ~/.config/home-manager";
-      devfs = "nix develop ~/.config/home-manager/dev-environments/fullstack";
-      devdsa = "nix develop ~/.config/home-manager/dev-environments/dsa";
+      devfs = "nix develop ~/.config/home-manager/dev-envs/fullstack";
+      devdsa = "nix develop ~/.config/home-manager/dev-envs/dsa";
     };
   };
 }
