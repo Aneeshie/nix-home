@@ -1,6 +1,6 @@
 # Home Manager flake
 
-This repository is your Home Manager configuration, defined as a Nix flake. It manages user-level packages, programs (git, zsh, starship, Neovim), terminal config (Ghostty), and provides convenient development shells for DSA and full‑stack work.
+This repository is my Home Manager configuration, defined as a Nix flake. It manages user-level packages, programs (git, zsh, starship, Neovim), terminal config (Ghostty), and provides convenient development shells for DSA and full‑stack work.
 
 > **Note on platforms**
 > - The Home Manager config and dev shells are currently wired to `aarch64-darwin` (Apple Silicon macOS).
