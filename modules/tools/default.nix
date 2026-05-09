@@ -72,4 +72,9 @@
   programs.bat = {
     enable = true;
   };
+
+  # Additional CLI tools not managed via `programs.*`
+  home.packages = with pkgs; [
+    tree-sitter
+  ];
 }
