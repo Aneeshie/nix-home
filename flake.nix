@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of zerr";
+  description = "Aneeshie's Home Manager Configuration";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -10,25 +10,17 @@
     };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations."zerr" = home-manager.lib.homeManagerConfiguration {
+    in {
+      homeConfigurations."aneeshie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-# the path to your home.nix.
+        # The path to the main configuration file
         modules = [
-            ./home/default.nix
-            ./home/ghostty.nix
-            ./home/packages.nix
-            ./home/programs.nix
-            ./home/shell.nix
-            ./home/neovim.nix
+          ./modules/home.nix
         ];
 
         # Optionally use extraSpecialArgs
