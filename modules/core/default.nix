@@ -21,13 +21,18 @@
     sesh
   ];
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
   programs.git = {
     enable = true;
-    userName = "Aneeshie";
-    userEmail = "aneeshdas556@gmail.com";
-    # Use delta for better syntax-highlighted diffs in git
-    delta.enable = true;
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Aneeshie";
+        email = "aneeshdas556@gmail.com";
+      };
       init.defaultBranch = "main";
     };
   };
