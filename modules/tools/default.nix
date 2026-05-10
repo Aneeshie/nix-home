@@ -4,8 +4,7 @@
 # Fuzzy finder
   programs.fzf = {
     enable = true;
-    enableZshIntegration = true;
-  };
+    enableZshIntegration = true; };
 
 # Smarter cd
   programs.zoxide = {
@@ -69,8 +68,9 @@
 
     settings = {
       add_newline = false;
+      scan_timeout = 10;
 
-      format = "$directory$git_branch$nix_shell$character";
+      format = "$directory$git_branch$git_status$nix_shell$cmd_duration$character";
 
       directory = {
         truncation_length = 2;
@@ -83,11 +83,20 @@
         style = "bright-black";
       };
 
+      git_status = {
+        style = "yellow";
+      };
+
       nix_shell = {
         format = " [󱄅 $name]($style)";
         style = "bold cyan";
         impure_msg = "impure";
         pure_msg = "pure";
+      };
+
+      cmd_duration = {
+        min_time = 2000;
+        format = " [$duration](bright-black)";
       };
 
       character = {

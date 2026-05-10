@@ -56,4 +56,12 @@
       cd = "z"; # alias to zoxide
     };
   };
+
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
 }
